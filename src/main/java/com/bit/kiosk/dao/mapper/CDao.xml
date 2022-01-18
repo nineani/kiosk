@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bit.kiosk.dao.CDao">
+
+	<select id="cartList" resultType="com.bit.kiosk.dto.CartDto">
+		SELECT * FROM cart
+	</select>
+	
+	<delete id="cartDelete">
+		DELETE FROM cart where c_num = #{param1}
+	</delete>
+	
+	
+</mapper>

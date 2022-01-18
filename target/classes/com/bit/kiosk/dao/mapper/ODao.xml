@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bit.kiosk.dao.ODao">
+
+	<select id="orderList" resultType="com.bit.kiosk.dto.OrderDto">
+		SELECT * FROM kiosk2.order
+	</select>
+	
+	<delete id="orderDelete">
+		DELETE FROM kiosk2.order where o_num = #{param1}
+	</delete>
+	
+</mapper>

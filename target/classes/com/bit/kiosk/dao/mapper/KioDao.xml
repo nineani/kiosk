@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bit.kiosk.dao.KioDao" >
+	<select id="findMenuAll" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu
+	</select>
+	
+	<select id="findCategoryList" resultType="java.lang.String">
+		select p_category from menu
+	</select>
+	
+	<select id="kioMenu" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu where p_category = #{param1}
+	</select>
+	
+	<select id="kioNum" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu where p_num = #{param1}
+	</select>
+	
+</mapper>

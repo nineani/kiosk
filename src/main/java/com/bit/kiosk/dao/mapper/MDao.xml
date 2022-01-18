@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bit.kiosk.dao.MDao">
+	<insert id="insertMenu">
+		insert into menu (p_name, p_category, p_price, p_image, p_image2, p_soldOut, p_event) values (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7})
+	</insert>
+	
+	<select id="menuList" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu
+	</select>
+	
+	<delete id="deleteMenu">
+		delete from menu where p_num = #{param1}
+	</delete>
+	
+	<select id="viewMenu" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu where p_num = #{param1}
+	</select>
+	
+	<update id="modifyMenu">
+		update menu set p_name = #{param1}, p_category = #{param2}, p_price = #{param3}, p_image = #{param4}, p_image2 = #{param5}, p_soldOut = #{param6}, p_event = #{param7} where p_num = #{param8}
+	</update>
+	
+	<select id="eventList" resultType="com.bit.kiosk.dto.MenuDto">
+		select * from menu where p_event = 'yes'
+	</select>
+	
+</mapper>

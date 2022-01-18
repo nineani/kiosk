@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.bit.kiosk.dao.UDao">
+	<select id="userList" resultType="com.bit.kiosk.dto.UserDto">
+		select * from user
+	</select>
+	
+	<insert id="signUp">
+		insert into user (u_id, u_pw, u_name, u_birth, u_email, sumPoint, u_address, u_phone, unique_num) values (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, 0, #{param6}, #{param7}, floor(10000000 + rand() * 100000000))
+	</insert>
+	
+	<select id="userView" resultType="com.bit.kiosk.dto.UserDto">
+		select * from user where u_num = #{param1}
+	</select>
+	
+	<update id="userUpdate">
+		update user set u_id = #{param1}, u_pw = #{param2}, u_name = #{param3}, u_birth = #{param4}, u_email = #{param5}, u_address = #{param6}, u_phone = #{param7} where u_num = #{param8}
+	</update>
+	
+	<delete id="userDelete">
+		delete from user where u_num = #{param1}
+	</delete>
+</mapper>
